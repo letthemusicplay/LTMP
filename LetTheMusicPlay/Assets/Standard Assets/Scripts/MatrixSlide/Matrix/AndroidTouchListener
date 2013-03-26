@@ -1,18 +1,20 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 /**
  * Class encapsulating the matric for touch points like the unlock screen of Android Jelly Bean / ICS
  * **/
-public class MatrixTouch : MonoBehaviour,InputAttackListener{
+public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	
-
+	private List<Vector2> points;
+	private bool isAttack=false;
 	// Use this for initialization
 	void Create() {
 	
 	}
 	
-	void Update(){	
+	public void Update(){	
 		
 	}
 	/*
@@ -20,27 +22,25 @@ public class MatrixTouch : MonoBehaviour,InputAttackListener{
 		
 	}*/
 
-	//COPIED FROM UNITY, NO SENSE, TODO
-	#region PatternGetter implementation
-	public System.Collections.Generic.List<UnityEngine.Vector2> getPattern ()
+	
+	public List<Vector2> getPattern ()
 	{
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
 	        Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-	        transform.Translate(-touchDeltaPosition.x * speed, -touchDeltaPosition.y * speed, 0);
+	     //   transform.Translate(-touchDeltaPosition.x * speed, -touchDeltaPosition.y * speed, 0);
 		}	
+		return null;
 	}
-	#endregion
-	
-	//TODO
-	#region InputAttackListener implementation
+
 	public bool IsAttackDone ()
 	{
-		throw new System.NotImplementedException ();
+		return isAttack;
 	}
+	
 	//TODO
-	public System.Collections.Generic.List<Vector2> NotifyPattern ()
+	public List<Vector2> NotifyPattern ()
 	{
 		throw new System.NotImplementedException ();
 	}
-	#endregion
+	
 }

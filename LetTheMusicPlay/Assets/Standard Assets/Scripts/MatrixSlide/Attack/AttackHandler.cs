@@ -22,7 +22,7 @@ public class AttackHandler : MonoBehaviour
 	{
 		inputListener.Update();
 		if(inputListener.IsAttackDone()){
-			Pattern temp=attacks.resolve(inputListener.NotifyPattern());
+			Pattern temp=attacks.resolve(inputListener);
 			if(temp==null)
 				solver.onFail();
 			else
