@@ -7,9 +7,9 @@ using System.Collections;
  * */
 public class AttackHandler : MonoBehaviour
 {
-	private AttackContainer attacks;	
-	private InputAttackListener inputListener;
-	private AttackSolver solver;
+	public AttackContainer attacks;	
+	public InputAttackListener inputListener;
+	public AttackSolver solver;
 	
 	// Use this for initialization
 	void Start ()

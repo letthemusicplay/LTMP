@@ -1,11 +1,9 @@
-
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-/**
- * Class encapsulating the matric for touch points like the unlock screen of Android Jelly Bean / ICS
- * **/
-public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
+
+public class MouseTouchListener : MonoBehaviour,InputAttackListener
+{
 	
 	public GUIMatrix matrix;
 	private List<Vector2> points;
@@ -15,34 +13,37 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	
 	
 	// Use this for initialization
-	void Start() {
+	void Start ()
+	{
 		points = new List<Vector2>();
 	}
 	
-	public void Update(){	
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
-			Debug.Log("touch!");
-			
+	// Update is called once per frame
+	public void Update ()
+	{
+		if(Input.GetMouseButtonDown(0)){
 			if(!inAttack){
 				inAttack=true;
 				attackDone=false;
 				points.Clear();
-			}
-		
-			Vector2 indexes= matrix.getIndexes(Input.GetTouch(0).position);
+			}	
+			Debug.Log(Input.mousePosition);
+			Vector2 indexes= matrix.getIndexes(Input.mousePosition);
 			//if a rectangle detected the touch
 			if(indexes.x!=-1){
 				if(!points.Contains(indexes)){
 					points.Add(indexes);
 				}
 			}
-			
-		}else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended){
+		
+		}else{
 			inAttack=false;
-			attackDone=true;
+			attackDone=true;	
 		}
+		foreach(Vector2 vec in points)
+			Debug.Log(vec);
 	}
-	
+
 	public bool IsAttackDone ()
 	{
 		return attackDone;
@@ -53,5 +54,5 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	{
 		return points;
 	}
-	
 }
+

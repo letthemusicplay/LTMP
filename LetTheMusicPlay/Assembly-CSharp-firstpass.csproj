@@ -67,6 +67,7 @@
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\AndroidTouchListener.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\InputAttackListener.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\MouseTouchListener.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\Pattern.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
