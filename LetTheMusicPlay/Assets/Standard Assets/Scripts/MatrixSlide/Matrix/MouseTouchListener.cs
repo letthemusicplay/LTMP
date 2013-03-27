@@ -19,16 +19,15 @@ public class MouseTouchListener : MonoBehaviour,InputAttackListener
 	}
 	
 	// Update is called once per frame
-	public void Update ()
+	public void OnGUI ()
 	{
-		if(Input.GetMouseButtonDown(0)){
+		if(Event.current.type==EventType.MouseDrag){
 			if(!inAttack){
 				inAttack=true;
 				attackDone=false;
 				points.Clear();
 			}	
-			Debug.Log(Input.mousePosition);
-			Vector2 indexes= matrix.getIndexes(Input.mousePosition);
+			Vector2 indexes= matrix.getIndexes(Event.current.mousePosition);
 			//if a rectangle detected the touch
 			if(indexes.x!=-1){
 				if(!points.Contains(indexes)){
@@ -36,12 +35,15 @@ public class MouseTouchListener : MonoBehaviour,InputAttackListener
 				}
 			}
 		
-		}else{
+		}else if(Event.current.type==EventType.MouseUp){
 			inAttack=false;
 			attackDone=true;	
 		}
-		foreach(Vector2 vec in points)
+		foreach(Vector2 vec in points){
 			Debug.Log(vec);
+		}
+			
+			
 	}
 
 	public bool IsAttackDone ()
