@@ -4,44 +4,32 @@ using System.Collections;
 public class Road : MonoBehaviour {
 	
 	// Variables
-	ArrayList pistes = new ArrayList();
+	ArrayList sections = new ArrayList();
 	ArrayList colliders = new ArrayList();
-	ArrayList audioSources = new ArrayList();
 	private bool isCheckToDelete = false;
 	private int activeSoundCount = 1;
-	public int nbTracks = 15;
 //	float myTimer = 0.5f;
 //	float timerVisible = 0.1f;
 	
 	// Use this for initialization
-	void Start () {
-		
-		// Initialisation de la liste Audiosource
-		for(int i = 1;i<nbTracks +1;i++)
+	void Start () {	
+		// Create the road		
+		for(int i = 1; i < 3; i++)
 		{
-			AudioSource audio = (AudioSource)gameObject.AddComponent("AudioSource");
-			audio.clip =  Resources.Load("Tracks/" + i.ToString()) as AudioClip;
-			if(i != 1)
-			{
-				audio.mute = true;
-			}
-			audio.loop = true;
-			audio.Play();
-			audioSources.Add(audio);
-		}		
-		
-		// création de la route		
-		for(int i = 1;i<3;i++)
-		{
-			GameObject piste = (GameObject)Instantiate(Resources.Load("piste1"));
-			piste.transform.position = new Vector3(2.5f,-0.5f,165 * i);
-			piste.name = i.ToString();
-			//piste.layer = 9;
-			pistes.Add(piste);
+			// Asset loading version
+			//GameObject section = (GameObject)Instantiate(Resources.Load("section1"));
 			
-			// Cubes de collision pour déplacer la route
+			// Prefab loading version
+			GameObject section = Instantiate(Resources.Load("section")) as GameObject;
+			
+			
+			//section.transform.position = new Vector3(2.5f,-0.5f,165 * i);
+			section.name = i.ToString();
+			sections.Add(section);
+			
+			// Collision cube that trigger movement of the road
 			GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-			cube.transform.position = new Vector3(0,0,piste.transform.position.z - 150);
+			cube.transform.position = new Vector3(0,0,section.transform.position.z - 150);
 			cube.AddComponent<Rigidbody>();
 			cube.rigidbody.isKinematic = true;
 			cube.renderer.enabled = false; // Objet invisible
@@ -120,14 +108,14 @@ public class Road : MonoBehaviour {
 	/// </summary>
 	void CheckInput()
 	{
-		if (Input.GetKeyDown("space"))
-		{
-			if(activeSoundCount < nbTracks)
-			{
-				activeSoundCount++;
-				ActivateSound(activeSoundCount);
-			}
-		}
+//		if (Input.GetKeyDown("space"))
+//		{
+//			if(activeSoundCount < nbTracks)
+//			{
+//				activeSoundCount++;
+//				ActivateSound(activeSoundCount);
+//			}
+//		}
 	}
 	
 	/// <summary>
@@ -135,28 +123,16 @@ public class Road : MonoBehaviour {
 	/// </summary>
 	void MoveRoad()
 	{
-		for(int i = 0;i<pistes.Count;i++)
+		for(int i = 0; i < sections.Count; i++)
 		{
-			GameObject piste = pistes[i] as GameObject;
-			float newPos = piste.transform.position.z - 0.1f;
-			piste.transform.position = new Vector3(piste.transform.position.x,piste.transform.position.y,newPos);
+			GameObject section = sections[i] as GameObject;
+			float newPos = section.transform.position.z - 0.1f;
+			section.transform.position = new Vector3(section.transform.position.x,section.transform.position.y,newPos);
 			
 			GameObject cube = colliders[i] as GameObject;
 			newPos = cube.transform.position.z - 0.1f;
 			cube.transform.position = new Vector3(cube.transform.position.x,cube.transform.position.y,newPos);
 		}
-	}
-	
-	/// <summary>
-	/// Activates the sound.
-	/// </summary>
-	/// <param name='soundNumber'>
-	/// Sound number.
-	/// </param>
-	void ActivateSound(int soundNumber)
-	{
-		AudioSource audio = audioSources[soundNumber-1] as AudioSource;
-		audio.mute = false;
 	}
 	
 	/// <summary>
@@ -169,16 +145,16 @@ public class Road : MonoBehaviour {
 	{
 		if(isCheckToDelete)
 		{
-			GameObject piste1 = pistes[0] as GameObject;
-			GameObject piste2 = pistes[1] as GameObject;
+			GameObject section1 = sections[0] as GameObject;
+			GameObject section2 = sections[1] as GameObject;
 			GameObject cube1 = colliders[0] as GameObject;
 			GameObject cube2 = colliders[1] as GameObject;
 			switch(int.Parse(collider.name) - 1)
 			{
-				case 0 : piste2.transform.position = new Vector3(piste1.transform.position.x,piste1.transform.position.y,piste1.transform.position.z + (165));
+				case 0 : section2.transform.position = new Vector3(section1.transform.position.x,section1.transform.position.y,section1.transform.position.z + (165));
 					cube2.transform.position = new Vector3(cube1.transform.position.x,cube1.transform.position.y,cube1.transform.position.z + (165));
 					break;
-				case 1 : piste1.transform.position = new Vector3(piste2.transform.position.x,piste2.transform.position.y,piste2.transform.position.z + (165));
+				case 1 : section1.transform.position = new Vector3(section2.transform.position.x,section2.transform.position.y,section2.transform.position.z + (165));
 					cube1.transform.position = new Vector3(cube2.transform.position.x,cube2.transform.position.y,cube2.transform.position.z + (165));
 					break;
 			}			

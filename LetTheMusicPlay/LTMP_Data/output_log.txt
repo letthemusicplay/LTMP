@@ -25,7 +25,7 @@ Loading C:\Users\flabat\Desktop\LTMP\LetTheMusicPlay\LTMP_Data\Managed\OpenNI.Ne
 Platform assembly: C:\Users\flabat\Desktop\LTMP\LetTheMusicPlay\LTMP_Data\Managed\ZDK.dll (this message is harmless)
 Platform assembly: C:\Users\flabat\Desktop\LTMP\LetTheMusicPlay\LTMP_Data\Managed\ZDK.dll (this message is harmless)
 Loading C:\Users\flabat\Desktop\LTMP\LetTheMusicPlay\LTMP_Data\Managed\ZDK.dll into Unity Child Domain
-- Completed reload, in  0.184 seconds
+- Completed reload, in  0.071 seconds
 desktop: 1280x800 58Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
