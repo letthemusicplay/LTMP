@@ -16,9 +16,8 @@ using UnityEngine;
 	
 		void Start(){
 			rects=new Rect[size,size];
-		
 			for(int i=0;i<size;i++){
-				for(int j=0;j<size;j++){
+				for(int j=0;j<size;j++){	
 					Vector2 pixelPos=new Vector2(transform.position.x*Screen.width,transform.position.y*Screen.height);
 					Vector2 rectDimension=new Vector2((transform.localScale.x*Screen.width)/size,(transform.localScale.y*Screen.height)/size);				
 					rects[i,j]=NewRect(pixelPos.x-rectDimension.x*(i-size/2),pixelPos.y-rectDimension.y*(j-size/2),rectDimension.x*rectPercent,rectDimension.y*rectPercent);	
@@ -27,14 +26,18 @@ using UnityEngine;
 			}
 		}
 	
-		void Update(){
-			if(DEBUG){
-				for(int i=0;i<size;i++){
+		void Update(){			
+		}
+	
+		void OnGUI(){
+			for(int i=0;i<size;i++){
 					for(int j=0;j<size;j++){	
-						GUI.DrawTexture (rects[i,j],pointTexture);
+						Debug.Log(pointTexture);
+						Debug.Log(rects[i,j]);
+						GUI.DrawTexture(rects[i,j],pointTexture);
 					}	
 				}
-			}
+		
 		}
 	
 		public Vector2 getIndexes(Vector2 touch){			
