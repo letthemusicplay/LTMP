@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 	public interface InputAttackListener
 	{
-		/** here it must recieve all inputs
-		 * */
-		void Update();
 		
 		/**
 		 * will return true if attack if finished (for instance android touch is not down anymore.

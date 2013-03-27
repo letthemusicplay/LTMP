@@ -60,8 +60,11 @@
      <Compile Include="Assets\Standard Assets\Image Effects (Pro Only)\VortexEffect.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Camera Scripts\RoadEffect.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Standard Assets\Scripts\GUITest.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\GameDataManager.cs" />
+=======
+>>>>>>> d8b299cad943f012f5e95f427145bb9c49d43c27
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\KinectInteract.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackContainer.cs" />
@@ -70,6 +73,10 @@
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\AndroidTouchListener.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\InputAttackListener.cs" />
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\MouseTouchListener.cs" />
+>>>>>>> d8b299cad943f012f5e95f427145bb9c49d43c27
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\Pattern.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />

@@ -7,9 +7,9 @@ using System.Collections;
  * */
 public class AttackHandler : MonoBehaviour
 {
-	private AttackContainer attacks;	
-	private InputAttackListener inputListener;
-	private AttackSolver solver;
+	public AttackContainer attacks;	
+	public InputAttackListener inputListener;
+	public AttackSolver solver;
 	
 	// Use this for initialization
 	void Start ()
@@ -20,7 +20,8 @@ public class AttackHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		inputListener.Update();
+		//removed update in Input LIstener : onGUI or any even is more appropriate in most cases. If not, must update mannhually somewhere.
+		//inputListener.Update();
 		if(inputListener.IsAttackDone()){
 			Pattern temp=attacks.resolve(inputListener);
 			if(temp==null)
