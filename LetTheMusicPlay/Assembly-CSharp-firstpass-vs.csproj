@@ -62,8 +62,13 @@
      <Compile Include="Assets\Standard Assets\Scripts\GUITest.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\KinectInteract.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackContainer.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackHandler.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackSolver.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\AndroidTouchListener.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\InputAttackListener.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\Pattern.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\CombineChildren.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Utility Scripts\MeshCombineUtility.cs" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />

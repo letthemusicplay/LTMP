@@ -7,15 +7,31 @@ using System.Collections.Generic;
  * **/
 public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	
+	public GUIMatrix matrix;
 	private List<Vector2> points;
+	
 	private bool isAttack=false;
+	
+	
 	// Use this for initialization
 	void Create() {
-	
+		points = new List<Vector2>();
 	}
 	
 	public void Update(){	
-		
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
+			if(!isAttack){
+				Vector2 indexes= matrix.getIndexes(Input.GetTouch(0).position);
+				//if a rectangle detected the touch
+				if(indexes.x!=-1){
+					if(!points.Contains(indexes)){
+						points.Add(indexes);
+					}
+				}
+			}
+		}else if(Input.GetTouch(0).phase == TouchPhase.Ended){
+			isAttack=true;
+		}
 	}
 	/*
 	public MatrixPoint getPointOnTouch() {
@@ -40,7 +56,10 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	//TODO
 	public List<Vector2> NotifyPattern ()
 	{
-		throw new System.NotImplementedException ();
+		isAttack=false;
+		List<Vector2>output=new List<Vector2>(points);
+		points.Clear();
+		return output;
 	}
 	
 }
