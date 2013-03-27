@@ -3,16 +3,20 @@ using UnityEngine;
 
 	public class GUIMatrix : MonoBehaviour
 	{
+		
+		public static readonly bool DEBUG=true;
+	
 		public int size=3;
 		/// <summary>
 		/// The size of rects in percent of screen dimensions.
 		/// </summary>
 		public float rectPercent;
+		public Texture pointTexture;
 		private Rect[,] rects;
 	
-		public void Create(){
+		void Start(){
 			rects=new Rect[size,size];
-			
+		
 			for(int i=0;i<size;i++){
 				for(int j=0;j<size;j++){
 					Vector2 pixelPos=new Vector2(transform.position.x*Screen.width,transform.position.y*Screen.height);
@@ -20,6 +24,16 @@ using UnityEngine;
 					rects[i,j]=NewRect(pixelPos.x-rectDimension.x*(i-size/2),pixelPos.y-rectDimension.y*(j-size/2),rectDimension.x*rectPercent,rectDimension.y*rectPercent);	
 				}
 					
+			}
+		}
+	
+		void Update(){
+			if(DEBUG){
+				for(int i=0;i<size;i++){
+					for(int j=0;j<size;j++){	
+						GUI.DrawTexture (rects[i,j],pointTexture);
+					}	
+				}
 			}
 		}
 	

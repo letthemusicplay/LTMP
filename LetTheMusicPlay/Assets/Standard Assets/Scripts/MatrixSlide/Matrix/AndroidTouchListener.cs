@@ -14,7 +14,7 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	
 	
 	// Use this for initialization
-	void Create() {
+	void Start() {
 		points = new List<Vector2>();
 	}
 	
@@ -29,7 +29,7 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 					}
 				}
 			}
-		}else if(Input.GetTouch(0).phase == TouchPhase.Ended){
+		}else if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended){
 			isAttack=true;
 		}
 	}
