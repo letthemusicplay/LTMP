@@ -7,14 +7,14 @@ public class Road : MonoBehaviour {
 	ArrayList sections = new ArrayList();
 	ArrayList colliders = new ArrayList();
 	private bool isCheckToDelete = false;
-	private int activeSoundCount = 1;
+//	private int activeSoundCount = 1;
 //	float myTimer = 0.5f;
 //	float timerVisible = 0.1f;
 	
 	// Use this for initialization
 	void Start () {	
 		// Create the road		
-		for(int i = 1; i < 3; i++)
+		for(int i = 0; i < 2; i++)
 		{
 			// Asset loading version
 			//GameObject section = (GameObject)Instantiate(Resources.Load("section1"));
@@ -29,7 +29,7 @@ public class Road : MonoBehaviour {
 			
 			// Collision cube that trigger movement of the road
 			GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-			cube.transform.position = new Vector3(0,0,section.transform.position.z - 150);
+			cube.transform.position = new Vector3(section.transform.position.x, section.transform.position.y,section.transform.position.z - 150);
 			cube.AddComponent<Rigidbody>();
 			cube.rigidbody.isKinematic = true;
 			cube.renderer.enabled = false; // Objet invisible

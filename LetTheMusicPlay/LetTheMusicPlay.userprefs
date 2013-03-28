@@ -1,27 +1,14 @@
-﻿<Properties GitUserInfo="UsingGIT">
+﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\MouseTouchListener.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs">
     <Files>
-<<<<<<< HEAD
-      <File FileName="Assets\Standard Assets\Scripts\KinectInteract.cs" Line="14" Column="3" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\AudioManager.cs" Line="41" Column="24" />
-      <File FileName="Assets\Resources\Road.cs" Line="1" Column="1" />
-=======
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\AndroidTouchListener.cs" Line="38" Column="5" />
-      <File FileName="Assets\Standard Assets\Scripts\KinectInteract.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\InputAttackListener.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\Pattern.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\MouseTouchListener.cs" Line="30" Column="22" />
-      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Attack\AttackContainer.cs" Line="1" Column="1" />
->>>>>>> d8b299cad943f012f5e95f427145bb9c49d43c27
+      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\GUIMatrix.cs" Line="19" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\MouseTouchListener.cs" Line="4" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\MatrixSlide\Matrix\AndroidTouchListener.cs" Line="18" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="F:\Dropbox\Game Programming\Unity Projects\LTMP\LetTheMusicPlay\Assets\Standard Assets\Scripts\MatrixSlide\Matrix\Test.cs" line="10" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
