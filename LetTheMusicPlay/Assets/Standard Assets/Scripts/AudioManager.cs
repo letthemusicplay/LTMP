@@ -4,7 +4,7 @@ using System.Collections;
 public class AudioManager : MonoBehaviour {
 	public int nbTracks = 15;
 	ArrayList audioSources = new ArrayList();
-	private int activeSoundCount = 0;
+	private int activeSoundCount = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,10 @@ public class AudioManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetKeyDown("space"))
+		{
+			PlayLoop();
+		}
 	}
 	
 	// Play a new loop

@@ -19,23 +19,24 @@ public class Road : MonoBehaviour {
 			// Asset loading version
 			//GameObject section = (GameObject)Instantiate(Resources.Load("section1"));
 			
+			// Get Avatar collider
+			BoxCollider avatar = gameObject.GetComponent<BoxCollider>();
+						
 			// Prefab loading version
 			GameObject section = Instantiate(Resources.Load("section")) as GameObject;
-			
-			
-			//section.transform.position = new Vector3(2.5f,-0.5f,165 * i);
-			section.name = i.ToString();
+						
+			section.transform.position = new Vector3(3.5f,-1.5f,80 * (i + 1));
+			section.name = (i + 1).ToString();
 			sections.Add(section);
 			
 			// Collision cube that trigger movement of the road
 			GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-			cube.transform.position = new Vector3(section.transform.position.x, section.transform.position.y,section.transform.position.z - 150);
+			cube.transform.position = new Vector3(avatar.transform.position.x, avatar.transform.position.y,section.transform.position.z - 70);
 			cube.AddComponent<Rigidbody>();
 			cube.rigidbody.isKinematic = true;
 			cube.renderer.enabled = false; // Objet invisible
-			cube.name = i.ToString();
+			cube.name = (i + 1).ToString();
 			cube.tag = "Road";
-			//cube.renderer.material.shader = Shader.Find("Custom/Transparent");
 			colliders.Add(cube);
 		}
 	
@@ -126,11 +127,11 @@ public class Road : MonoBehaviour {
 		for(int i = 0; i < sections.Count; i++)
 		{
 			GameObject section = sections[i] as GameObject;
-			float newPos = section.transform.position.z - 0.1f;
+			float newPos = section.transform.position.z - 0.35f;
 			section.transform.position = new Vector3(section.transform.position.x,section.transform.position.y,newPos);
 			
 			GameObject cube = colliders[i] as GameObject;
-			newPos = cube.transform.position.z - 0.1f;
+			newPos = cube.transform.position.z - 0.35f;
 			cube.transform.position = new Vector3(cube.transform.position.x,cube.transform.position.y,newPos);
 		}
 	}
@@ -151,11 +152,11 @@ public class Road : MonoBehaviour {
 			GameObject cube2 = colliders[1] as GameObject;
 			switch(int.Parse(collider.name) - 1)
 			{
-				case 0 : section2.transform.position = new Vector3(section1.transform.position.x,section1.transform.position.y,section1.transform.position.z + (165));
-					cube2.transform.position = new Vector3(cube1.transform.position.x,cube1.transform.position.y,cube1.transform.position.z + (165));
+				case 0 : section2.transform.position = new Vector3(section1.transform.position.x,section1.transform.position.y,section1.transform.position.z + (80));
+					cube2.transform.position = new Vector3(cube1.transform.position.x,cube1.transform.position.y,cube1.transform.position.z + (80));
 					break;
-				case 1 : section1.transform.position = new Vector3(section2.transform.position.x,section2.transform.position.y,section2.transform.position.z + (165));
-					cube1.transform.position = new Vector3(cube2.transform.position.x,cube2.transform.position.y,cube2.transform.position.z + (165));
+				case 1 : section1.transform.position = new Vector3(section2.transform.position.x,section2.transform.position.y,section2.transform.position.z + (80));
+					cube1.transform.position = new Vector3(cube2.transform.position.x,cube2.transform.position.y,cube2.transform.position.z + (80));
 					break;
 			}			
 		}
