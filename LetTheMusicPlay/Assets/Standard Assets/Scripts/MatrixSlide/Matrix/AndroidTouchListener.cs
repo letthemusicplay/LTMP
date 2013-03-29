@@ -9,6 +9,8 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 	
 	public GUIMatrix matrix;
 	private List<Vector2> points;
+	private Vector2 lastFirst=new Vector2(-1,-1);
+	private Vector2 lastTwo=new Vector2(-1,-1);
 	
 	private bool inAttack=false;
 	private bool attackDone=false;
@@ -32,8 +34,13 @@ public class AndroidTouchListener : MonoBehaviour,InputAttackListener{
 			Vector2 indexes= matrix.getIndexes(Input.GetTouch(0).position);
 			//if a rectangle detected the touch
 			if(indexes.x!=-1){
-				if(!points.Contains(indexes)){
+				if(indexes!=lastFirst && indexes!= lastTwo){
 					points.Add(indexes);
+						//verify that we didn't just create the same segment again
+					lastTwo=lastFirst;
+					lastFirst=indexes;
+				}else{
+					//maybe make attack fail ddirectly here?
 				}
 			}
 			
